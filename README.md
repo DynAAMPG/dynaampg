@@ -156,21 +156,16 @@ Generate graphs in "{dataset_path}\processed" directory
 ```
 tensorboard --logdir=runs
 ```
-```
+
 Now CTRL+Click http://localhost:6006/ or copy this address in browser
 ```
 ![Alt text](assets/tensorboard.png?raw=true "Launch Tensorboard")
 ![Alt text](assets/graph3.png?raw=true "Tensorboard Training and Validation Accuracy Visualization")
 ![Alt text](assets/graph4.png?raw=true "Tensorboard Training and Validation Loss Visualization")
-
-
-
-
-
 ```
 
 
-# Plot All Gram Matrices
+## Plot All Gram Matrices
 
 1. Download the pre-trained model from following link:
 ```
@@ -186,7 +181,7 @@ https://drive.google.com/file/d/10Gcpi1Kln-yCCMk-Sahl-f0i9dI_iHzm/view?usp=shari
 
 
 
-# Plot Dataset Distribution
+## Plot Dataset Distribution
 
 1. Run the script
 ```
@@ -194,7 +189,7 @@ https://drive.google.com/file/d/10Gcpi1Kln-yCCMk-Sahl-f0i9dI_iHzm/view?usp=shari
 ```
 ![Alt text](assets/fig_dataset_distribution.png?raw=true "Data Distribution")
 
-# Plot Dynamic Angular Margins
+## Plot Dynamic Angular Margins
 
 1. Run the script
 ```
@@ -202,7 +197,7 @@ https://drive.google.com/file/d/10Gcpi1Kln-yCCMk-Sahl-f0i9dI_iHzm/view?usp=shari
 ``` 
 ![Alt text](assets/fig_dynamic_angular_margins.png?raw=true "Dynamic Angular Margins")
 
-# Plot Confusion Matrices
+## Plot Confusion Matrices
 
 1. Run the script (ID Eval)
 ```
@@ -214,7 +209,7 @@ https://drive.google.com/file/d/10Gcpi1Kln-yCCMk-Sahl-f0i9dI_iHzm/view?usp=shari
  visualization/plot_ood_confusion_matrx.py
 ``` 
 ![Alt text](assets/fig_ood_confusion_matrices.png?raw=true "OOD Confusion Matrices")
-# Plot Threshold
+## Plot Threshold
 
 1. Run the script
 ```
