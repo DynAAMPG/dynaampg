@@ -139,7 +139,7 @@ Now CTRL+Click http://localhost:6006/ or copy this address in browser
 
 1. Download the OOD dataset from following link:
 ```
-https://drive.google.com/file/d/1h0Q55pba1zF8Q4D7xJvenscLodof4CDS/view?usp=sharing
+https://drive.google.com/file/d/1OrhHZ-BHBVxkXLAQnukRI6coB_SQuxRW/view?usp=sharing
 ```
 2. Extract and place the dataset in datasets/OOD
 
@@ -153,7 +153,7 @@ generate_ood_dataset.py
 
 1. Download the pre-trained model from following link:
 ```
-https://drive.google.com/file/d/1fgvWeshlc10raOoQfPfEXtsp73O4fa4L/view?usp=sharing
+https://drive.google.com/file/d/10Gcpi1Kln-yCCMk-Sahl-f0i9dI_iHzm/view?usp=sharing
 ```
 2. Extract and place the model in saved_models/
 
