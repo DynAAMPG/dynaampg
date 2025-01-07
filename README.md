@@ -11,12 +11,11 @@
 * Paste the Wireshark installation path: (C:\Program Files\Wireshark)
 * Click Ok > OK
 
-## 3. Download the datasets
+## 3. Download and prepare the datasets
 ### 3A. (ISCX-VPN-NonVPN-2016)
-
+* Download the following files from the link:
 http://205.174.165.80/CICDataset/ISCX-VPN-NonVPN-2016/Dataset/PCAPs/
 
-* Download following files:
 ```
 1. NonVPN-PCAPs-01.zip
 2. NonVPN-PCAPs-02.zip
@@ -24,29 +23,11 @@ http://205.174.165.80/CICDataset/ISCX-VPN-NonVPN-2016/Dataset/PCAPs/
 4. VPN-PCAPS-01.zip
 5. VPN-PCAPS-02.zip
 ```
-### 3B. (VNAT-VPN)
-https://archive.ll.mit.edu/datasets/vnat/VNAT_release_1.zip
-* Download following files:
-```
-1. VNAT_release_1.zip
-```
-
-## 4. Prepare the datasets
-### 4A. (ISCX-VPN-NonVPN-2016)
-
-* Extract the following files in folder datasets/ISCX_VPN
-```
-NonVPN-PCAPs-01.zip
-NonVPN-PCAPs-02.zip
-NonVPN-PCAPs-03.zip
-VPN-PCAPS-01.zip
-VPN-PCAPS-02.zip
-```
-
+* Extract these following files in folder datasets/ISCX_VPN
 * Finally the dataset structure should look like:
 ```
 -datasets
- - ISCX
+ - ISCX_VPN
   - aim_chat_3a.pcap
   - aim_chat_3b.pcap
 	...
@@ -56,33 +37,83 @@ VPN-PCAPS-02.zip
 	...
   - vpn_youtube_A.pcap
 ```
-### 4B. (VNAT-VPN)
-* Extract the following files in folder datasets/VNAT
-```
-VNAT_release_1.zip
-```
 
-## 5. Create conda environment and install packages
+### 3B. (VNAT)
+* Download the following files from the link:
+https://archive.ll.mit.edu/datasets/vnat/VNAT_release_1.zip
+
+```
+1. VNAT_release_1.zip
+```
+* Extract these files in folder datasets/VNAT
+
+### 3C. (Mendeley NetworkTraffic)
+* Download the following files from the link:
+https://data.mendeley.com/datasets/5pmnkshffm/3
+
+```
+1. pcap_bulk-1.tar.gz
+2. pcap_bulk-2.tar.gz
+3. pcap_idle.tar.gz
+4. pcap_interactive.tar.gz
+5. pcap_video.tar.gz
+6. pcap_web.tar.gz
+```
+* Extract these files in folder datasets/Mendeley
+
+### 3D. (US Mobile APP)
+* Download the following files from the link:
+https://archive.ll.mit.edu/datasets/vnat/VNAT_release_1.zip
+
+```
+1. china.zip
+1. us.zip
+1. india.zip
+```
+* Extract these files in folder datasets/USMobileApp
+
+### 3E. (Custom/Realtime Dataset)
+
+1. Download the Custom/Realtime dataset from following link:
+```
+https://drive.google.com/file/d/12888hICcowDk2Ye1rfnEHQHictyh7TB9/view?usp=sharing
+```
+2. Extract and place the dataset in datasets/Realtime
+
+
+### 3F. (OOD Dataset)
+
+1. Download the OOD dataset from following link:
+```
+https://drive.google.com/file/d/1OrhHZ-BHBVxkXLAQnukRI6coB_SQuxRW/view?usp=sharing
+```
+2. Extract and place the dataset in datasets/OOD
+
+
+
+
+## 4. Create conda environment and install packages
 * Open miniconda and run following commands one-by-one:
 ```
-create conda -n gformer python=3.11
-conda activate gformer
-pip install matplotlib, scapy, tqdm, pandas, numpy
+create conda -n dynaampg python=3.11
+conda activate dynaampg
+pip install matplotlib scapy tqdm pandas numpy pyshark networkx
+pip install psutil scikit-learn seaborn umap-learn
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 pip install torch_geometric
 pip install pyg_lib torch_scatter torch_sparse torch_cluster torch_spline_conv -f https://data.pyg.org/whl/torch-2.3.0+cu118.html
 pip install tensorboard
 ```
 
-## 6. Convert pcapng files to pcap and split sessions
+## 5. Convert pcapng files to pcap and split sessions
 * Download splitcap utility
    https://www.netresec.com/?page=SplitCap
-* Place SplitCap.exe file in .\gformer\
+* Place SplitCap.exe file in .\dynaampg\
 * Open project folder in VSCode
-* Select python interpreter as "gformer"
+* Select python interpreter as "dynaampg"
 * Run the script split_sessions.py
 
-## 7. Process packets
+## 6. Process packets
 
 * Run the script process_data.py
 * This script will perform following tasks:
@@ -97,7 +128,7 @@ For each packet, it
   Generates JSON file where each file represents a session graph.
 ```
 
-## 8. Generate graphs
+## 7. Generate graphs
 * Run the script generate_graphs.py
 * This script will perform following tasks:
 ```
@@ -114,12 +145,12 @@ Generate graphs in "{dataset_path}\processed" directory
  - pre_transform.pt
 ```
 
-## 9. Train the model
+## 8. Train the model
 * Run the script train.py
 
 ![Alt text](assets/training.png?raw=true "Training model")
 
-## 10. Launch tensorboard
+## 9. Launch tensorboard
 * Open new powershell window from VS Code by clicking "+" button
 * Run the following command
 ```
@@ -135,17 +166,7 @@ Now CTRL+Click http://localhost:6006/ or copy this address in browser
 
 
 
-# Generate OOD dataset
 
-1. Download the OOD dataset from following link:
-```
-https://drive.google.com/file/d/1OrhHZ-BHBVxkXLAQnukRI6coB_SQuxRW/view?usp=sharing
-```
-2. Extract and place the dataset in datasets/OOD
-
-3. Run the script 
-```
-generate_ood_dataset.py
 ```
 
 
