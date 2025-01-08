@@ -221,6 +221,8 @@ https://drive.google.com/file/d/10Gcpi1Kln-yCCMk-Sahl-f0i9dI_iHzm/view?usp=shari
 
 To assess the contribution of each component in the DynAAM-PG framework, we conducted an ablation study on the VNAT dataset, chosen for its significant class imbalance. The study investigates the impact of: (i) dynamic angular margins, (ii) sub-centers, and (iii) penalized Gram matrices on classification accuracy and OOD detection.
 
+![Alt text](assets/anlation-table.png?raw=true "Ablation Results")
+
 ## Baseline Model. 
 We use a baseline model with the same session encoder but without angular margin adjustments or penalized Gram matrices. This model employs a standard \textit{Softmax} loss, enabling us to clearly quantify improvements introduced by DynAAM-PG.
 
