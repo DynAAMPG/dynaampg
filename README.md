@@ -224,7 +224,7 @@ To assess the contribution of each component in the DynAAM-PG framework, we cond
 ![Alt text](assets/ablation-table.png?raw=true "Ablation Results")
 
 ## Baseline Model. 
-We use a baseline model with the same session encoder but without angular margin adjustments or penalized Gram matrices. This model employs a standard \textit{Softmax} loss, enabling us to clearly quantify improvements introduced by DynAAM-PG.
+We use a baseline model with the same session encoder but without angular margin adjustments or penalized Gram matrices. This model employs a standard Softmax loss, enabling us to clearly quantify improvements introduced by DynAAM-PG.
 
 ### Effect of Dynamic Angular Margins. 
 Incorporating Dynamic Additive Angular Margins (DynAAM) significantly boosts classification performance over the baseline, as shown in {Ablation Table}. DynAAM addresses class imbalance by dynamically adjusting angular margins, particularly for minority classes, improving class separation and overall classification accuracy.
@@ -233,7 +233,7 @@ Incorporating Dynamic Additive Angular Margins (DynAAM) significantly boosts cla
 The inclusion of sub-centers helps address intra-class variability. Testing various numbers of sub-centers ($C=2$ to $C=15$) revealed that $C=3$ provides optimal results, with an $F1_m$ of 0.9816 and an $ACC$ of 0.9814. Increasing $C$ beyond 3 reduces performance, as seen with $C=15$ ($F1_m$ = 0.8563, $ACC$ = 0.8495). This suggests that a moderate number of sub-centers balances intra-class compactness without introducing noise.
 
 ### Effect of Penalized Gram Matrices. 
-We evaluated three types of Gram matrices for OOD detection: (i) standard Gram matrix $G$, (ii) higher-order Gram matrices $G^{p}$, and (iii) our proposed normalized penalized Gram matrix $G^{np}$. As shown in Table \ref{tableAblation}, $G^{np}$ with $C=3$ achieves the best OOD detection performance, with an $F1_m$ of 0.9501 and $ACC$ of 0.9498. Standard and higher-order Gram matrices ($G$ and $G^p$) show lower performance, particularly as the order increases. The effectiveness of $G^{np}$ highlights the importance of penalization and normalization for better inter-feature correlation and OOD detection.
+We evaluated three types of Gram matrices for OOD detection: (i) standard Gram matrix $G$, (ii) higher-order Gram matrices $G^{p}$, and (iii) our proposed normalized penalized Gram matrix $G^{np}$. As shown in Table {Ablation Table}, $G^{np}$ with $C=3$ achieves the best OOD detection performance, with an $F1_m$ of 0.9501 and $ACC$ of 0.9498. Standard and higher-order Gram matrices ($G$ and $G^p$) show lower performance, particularly as the order increases. The effectiveness of $G^{np}$ highlights the importance of penalization and normalization for better inter-feature correlation and OOD detection.
 
 The ablation study confirms the importance of each DynAAM-PG component. Dynamic angular margins enhance class separation, sub-centers optimize intra-class compactness, and the normalized penalized Gram matrix is crucial for reliable OOD detection. Together, these components contribute to improved classification accuracy and robust OOD detection, demonstrating the efficacy of the DynAAM-PG framework.
 
