@@ -227,7 +227,7 @@ To assess the contribution of each component in the DynAAM-PG framework, we cond
 We use a baseline model with the same session encoder but without angular margin adjustments or penalized Gram matrices. This model employs a standard \textit{Softmax} loss, enabling us to clearly quantify improvements introduced by DynAAM-PG.
 
 ### Effect of Dynamic Angular Margins. 
-Incorporating Dynamic Additive Angular Margins (DynAAM) significantly boosts classification performance over the baseline, as shown in Table~\ref{tableAblation}. DynAAM addresses class imbalance by dynamically adjusting angular margins, particularly for minority classes, improving class separation and overall classification accuracy.
+Incorporating Dynamic Additive Angular Margins (DynAAM) significantly boosts classification performance over the baseline, as shown in {Ablation Table}. DynAAM addresses class imbalance by dynamically adjusting angular margins, particularly for minority classes, improving class separation and overall classification accuracy.
 
 ### Effect of Sub-centers. 
 The inclusion of sub-centers helps address intra-class variability. Testing various numbers of sub-centers ($C=2$ to $C=15$) revealed that $C=3$ provides optimal results, with an $F1_m$ of 0.9816 and an $ACC$ of 0.9814. Increasing $C$ beyond 3 reduces performance, as seen with $C=15$ ($F1_m$ = 0.8563, $ACC$ = 0.8495). This suggests that a moderate number of sub-centers balances intra-class compactness without introducing noise.
