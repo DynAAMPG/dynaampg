@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
+from utils import *
 
 
 plt.rcParams.update({
@@ -11,10 +12,8 @@ plt.rcParams.update({
 font_size = 18
 
 
-# Sample data
-np.random.seed(0)
-id_sessions = np.random.uniform(low=0.32, high=1.3, size=30)  # ID sessions in the range 0.5 to 0.987
-ood_sessions = np.random.uniform(low=2.1, high=4.0, size=50)  # OOD sessions in the range 2.1 to 4.0
+id_sessions = get_id_sessions_std(low=0.32, high=1.3, size=30)  
+ood_sessions = get_ood_sessions_std(low=2.1, high=4.0, size=50) 
 
 # Threshold T
 T = 1.712  # Updated threshold

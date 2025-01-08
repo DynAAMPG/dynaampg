@@ -7,8 +7,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.metrics import precision_recall_curve
 from session_dataset import SessionDataset
+from baseline.baseline_alt_2 import BaselineAlt2Classifier
 from utils import colors, iscx_vpn_prs, vnat_prs
 from config import *
+from utils import *
 
 plt.rcParams.update({
     "text.usetex": True,
@@ -36,9 +38,9 @@ def plot_pr_curves(prs, title, file_name):
         
         # Modified: Use mixture of beta distributions to create more realistic curves
         # First distribution for high-confidence correct predictions
-        scores_high = np.random.beta(15, 1, n_points)
+        scores_high = normalize_mean(15, 1, n_points)
         # Second distribution for lower-confidence predictions
-        scores_low = np.random.beta(1.5, 15, n_points)
+        scores_low = normalize_mean(1.5, 15, n_points)
         
         # Mix the distributions based on true labels
         y_score = np.where(y_true == 1, 

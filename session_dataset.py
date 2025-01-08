@@ -91,8 +91,6 @@ class SessionDataset(InMemoryDataset):
         y = [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         data = Data(x=x, edge_indices=edge_indices, y=y)
 
-        print(x)
-
         return sessions
     
 

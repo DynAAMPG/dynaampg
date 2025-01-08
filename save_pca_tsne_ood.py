@@ -19,8 +19,8 @@ def save_pca_tsne(dataset_name, dataset_labels, method, num_ood_samples, dist_th
     max_attempts = 1000  # Prevent infinite loop
 
     while len(ood_samples) < num_ood_samples and attempts < max_attempts:
-        new_x = np.random.uniform(reduced_features[:, 0].min(), reduced_features[:, 0].max())
-        new_y = np.random.uniform(reduced_features[:, 1].min(), reduced_features[:, 1].max())
+        new_x = normalize_std(reduced_features[:, 0].min(), reduced_features[:, 0].max())
+        new_y = normalize_std(reduced_features[:, 1].min(), reduced_features[:, 1].max())
         
         # Calculate distances to all blue points
         distances = np.sqrt((reduced_features[:, 0] - new_x) ** 2 + (reduced_features[:, 1] - new_y)**2)

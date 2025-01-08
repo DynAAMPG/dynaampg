@@ -3,11 +3,11 @@ import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 import pandas as pd
 import matplotlib.colors as mcolors
-import random
 import sys
 import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from config import *
+from utils import *
 
 plt.rcParams['font.family'] = 'Times New Roman'
 
@@ -92,7 +92,7 @@ def draw_arcface_plot(ax, dataset='iscx', C=3, beta=6, legend_columns=2):
         for j in range(1, C):
             # Alternate the offset direction to spread centroids on both sides of the main centroid
             direction = -1 if j % 2 == 0 else 1
-            offset = direction * random.uniform(0.2, 0.5) * margin
+            offset = direction * normalize_std(0.2, 0.5) * margin
             subcenter = [radius * np.cos(start_angle + margin / 2 + offset), radius * np.sin(start_angle + margin / 2 + offset)]
             subcenters.append(subcenter)
         centroids = np.array(subcenters)
